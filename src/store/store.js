@@ -17,10 +17,12 @@ const StoreProvider = ({ children }) => {
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")) || null);
   const [token, setToken] = useState(() => localStorage.getItem("token") || null);
 
+  const API_BASE_URL = "https://blog-backend-mh22.onrender.com";
+
   // Fetch posts from backend on load
   const fetchPosts = async () => {
     try {
-      const res = await fetch("/api/posts");
+      const res = await fetch(`${API_BASE_URL}/api/posts`);
       const data = await res.json();
       if (Array.isArray(data)) setBloglist(data);
     } catch (err) {
