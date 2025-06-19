@@ -9,6 +9,8 @@
   height: max-content;
   overflow: hidden;
   box-sizing: border-box;
+  width: 90%;
+  margin-left: 17px;
 }
 
 .blog-card:hover {
