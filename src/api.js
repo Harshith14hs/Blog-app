@@ -1,0 +1,1 @@
+export const API_BASE_URL = "https://blog-backend-mh22.onrender.com"; 

@@ -2,12 +2,12 @@ import { useState, useContext } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import "./LoginPage.css";
 import { Bloglist } from "../store/store";
+import { API_BASE_URL } from "../api";
 
 const Login=({updateVal})=>{
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser, setToken } = useContext(Bloglist);
-  const API_BASE_URL = "https://blog-backend-mh22.onrender.com";
 
   const handleLogin = async (e) => {
     e.preventDefault();

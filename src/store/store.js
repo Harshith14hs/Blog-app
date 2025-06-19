@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react"
+import { API_BASE_URL } from "../api";
 
 export const Bloglist = createContext({
   bloglist: [],
@@ -16,8 +17,6 @@ const StoreProvider = ({ children }) => {
   const [bloglist, setBloglist] = useState([]);
   const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")) || null);
   const [token, setToken] = useState(() => localStorage.getItem("token") || null);
-
-  const API_BASE_URL = "https://blog-backend-mh22.onrender.com";
 
   // Fetch posts from backend on load
   const fetchPosts = async () => {
@@ -40,7 +39,6 @@ const StoreProvider = ({ children }) => {
   const deleteBlog = async (id) => {
     // Remove from local state immediately for responsive UI
     setBloglist((prev) => prev.filter((post) => post._id !== id && post.id !== id));
-    
     // Refresh from backend to ensure consistency
     setTimeout(() => {
       fetchPosts();
