@@ -6,6 +6,7 @@ import {  useContext, useState, useEffect } from "react";
 import { Bloglist } from "../store/store";
 import { FaCommentAlt } from "react-icons/fa";
 import CommentSection from "./CommentSection";
+import { API_BASE_URL } from "../api";
 
 export default function BlogCard({ post, updateVal, commentBox }) {
   const { deleteBlog, user, token, refreshPosts } = useContext(Bloglist);
@@ -37,7 +38,7 @@ export default function BlogCard({ post, updateVal, commentBox }) {
     }
     
     try {
-      const res = await fetch(`/api/posts/${postId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/posts/${postId}`, {
         method: "DELETE",
         headers: { 
           'Authorization': `Bearer ${token}`,
@@ -68,7 +69,7 @@ export default function BlogCard({ post, updateVal, commentBox }) {
       return;
     }
     try {
-      const res = await fetch(`/api/posts/${postId}/like`, {
+      const res = await fetch(`${API_BASE_URL}/api/posts/${postId}/like`, {
         method: "PUT",
         headers: { 
           'Authorization': `Bearer ${token}`,
