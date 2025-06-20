@@ -17,6 +17,8 @@ body {
   justify-content: space-between;
   margin-bottom: 20px;
   margin-top: -20px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 .nav h2{
   margin: 0 24px 0 0;
@@ -130,6 +132,18 @@ body {
     gap: 8px;
     margin-bottom: 10px;
     margin-top: 0;
+    width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  .nav-auth-links {
+    flex-direction: row;
+    gap: 2px;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
   }
 }
 
@@ -141,4 +155,20 @@ body {
     font-size: 1.2rem;
     margin: 0 0 0 0;
   }
+  .nav-auth-links {
+    flex-direction: column;
+    gap: 2px;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+}
+
+.nav-auth-links {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
 } 

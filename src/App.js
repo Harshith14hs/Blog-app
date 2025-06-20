@@ -57,10 +57,10 @@ function App() {
                   >Logout</button>
                 </div>
               ) : (
-                <>
-                 <span> <a className="b2" onClick={() => updateVal("login")}>Login/</a>
-                  <a className="b1" onClick={() => updateVal("signin")}>Sign-up</a></span>
-                </>
+                <div className="nav-auth-links">
+                  <a className="b2" onClick={() => updateVal("login")}>Login/</a>
+                  <a className="b1" onClick={() => updateVal("signin")}>Sign-up</a>
+                </div>
               )}
             </div>
             <BlogList currVal={currVal} updateVal={updateVal} searchTerm={searchTerm} token={token} />

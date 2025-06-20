@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import './CommentSection.css';
 import { Bloglist } from '../store/store';
 import { MdDelete } from 'react-icons/md';
+import { API_BASE_URL } from '../api';
 
 export default function CommentSection({ postId }) {
   const { user, token } = useContext(Bloglist);
@@ -15,7 +16,7 @@ export default function CommentSection({ postId }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch(`/api/comments/post/${postId}`);
+      const res = await fetch(`${API_BASE_URL}/api/comments/post/${postId}`);
       if (!res.ok) throw new Error('Failed to fetch comments');
       const data = await res.json();
       setComments(data);
@@ -42,7 +43,7 @@ export default function CommentSection({ postId }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('/api/comments', {
+      const res = await fetch(`${API_BASE_URL}/api/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +72,7 @@ export default function CommentSection({ postId }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch(`/api/comments/${commentId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/comments/${commentId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

@@ -76,8 +76,12 @@ export default function BlogList({ currVal, updateVal, searchTerm, token }) {
   });
 
   // Only show logged-in user's posts in 'myposts' view
-  if (currVal === "myposts" && user) {
-    filteredPosts = filteredPosts.filter(post => String(post.author?._id || post.author) === String(user._id || user.id));
+  if (currVal === "myposts") {
+    if (user) {
+      filteredPosts = filteredPosts.filter(post => String(post.author?._id || post.author) === String(user._id || user.id));
+    } else {
+      filteredPosts = [];
+    }
   }
 
   return (
