@@ -2,6 +2,7 @@ import "./CreateBlog.css";
 import {Bloglist} from "../store/store"
 import { useContext } from "react";
 import { useRef } from "react";
+import { API_BASE_URL } from "../api";
 
 export default function CreateBlog() {    
 
@@ -26,7 +27,7 @@ export default function CreateBlog() {
       const excerpt=ExcerptE.current.value
       const content = ContentE.current.value
       try {
-        const res = await fetch("/api/posts", {
+        const res = await fetch(`${API_BASE_URL}/api/posts`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

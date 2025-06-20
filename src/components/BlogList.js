@@ -3,6 +3,7 @@ import { Bloglist } from "../store/store";
 import "./BlogList.css";
 import { useContext, useEffect, useState } from "react";
 import BlogComment from "./blogComment";
+import { API_BASE_URL } from "../api";
 
 export default function BlogList({ currVal, updateVal, searchTerm, token }) {
   const { bloglist } = useContext(Bloglist);
@@ -19,7 +20,7 @@ export default function BlogList({ currVal, updateVal, searchTerm, token }) {
     console.log('BlogList useEffect - currVal:', currVal, 'token:', token ? 'present' : 'missing');
     
     if (currVal === "home") {
-      url = "/api/posts";
+      url = `${API_BASE_URL}/api/posts`;
       options = {};
     } else if (currVal === "myposts") {
       if (!token) {
@@ -27,7 +28,7 @@ export default function BlogList({ currVal, updateVal, searchTerm, token }) {
         setLoading(false);
         return;
       }
-      url = "/api/posts/mine";
+      url = `${API_BASE_URL}/api/posts/mine`;
       options = {
         headers: {
           Authorization: `Bearer ${token}`
