@@ -20,7 +20,7 @@ export default function RightSidebar({ onSearch, onMyPosts }) {
     }
     return [max];
   })();
-  const recentPosts = [...bloglist].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 4);
+  const recentPosts = [...bloglist].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 3);
 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
