@@ -6,7 +6,7 @@ import BlogComment from "./blogComment";
 import { API_BASE_URL } from "../api";
 
 export default function BlogList({ currVal, updateVal, searchTerm, token }) {
-  const { bloglist } = useContext(Bloglist);
+  const { bloglist, user } = useContext(Bloglist);
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -70,10 +70,15 @@ export default function BlogList({ currVal, updateVal, searchTerm, token }) {
     }
   }, [bloglist]);
 
-  const filteredPosts = posts.filter((post) => {
+  let filteredPosts = posts.filter((post) => {
     const searchContent = `${post.title} ${post.tag} ${post.author?.username || post.author} ${post.excerpt}`.toLowerCase();
     return searchContent.includes(searchTerm.toLowerCase());
   });
+
+  // Only show logged-in user's posts in 'myposts' view
+  if (currVal === "myposts" && user) {
+    filteredPosts = filteredPosts.filter(post => String(post.author?._id || post.author) === String(user._id || user.id));
+  }
 
   return (
     <div className="blog-list">

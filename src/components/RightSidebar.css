@@ -193,11 +193,13 @@
     gap: 8px;
     position: static;
     height: auto;
+    box-sizing: border-box;
   }
   .popular-posts, .recent-posts, .categories {
     width: 100%;
     margin-top: 0;
     position: static;
+    box-sizing: border-box;
   }
 }
 
@@ -208,6 +210,7 @@
     min-width: 0;
     max-width: 100vw;
     border-radius: 0;
+    box-sizing: border-box;
   }
   .popular-posts h4, .recent-posts h4, .categories h4 {
     font-size: 1rem;
@@ -215,5 +218,6 @@
   .popular-posts, .recent-posts, .categories {
     margin-top: 0;
     padding: 0 2px;
+    box-sizing: border-box;
   }
 }

@@ -88,8 +88,13 @@ export default function RightSidebar({ onSearch, onMyPosts }) {
         <h4>📂 Categories</h4>
         <ul>
           <li onClick={() => onSearch && onSearch("")}>All Posts <span>({str})</span></li>
-          {user && <li onClick={handleMyPosts}>My Posts <span>({bloglist.filter(post => String(post.author?._id || post.author) === String(user._id || user.id)).length})</span></li>}
-          
+          {user ? (
+            <li onClick={handleMyPosts} style={{cursor: 'pointer'}}>
+              My Posts <span>({bloglist.filter(post => String(post.author?._id || post.author) === String(user._id || user.id)).length})</span>
+            </li>
+          ) : (
+            <li style={{color: '#888', cursor: 'not-allowed'}}>Login to see My Posts</li>
+          )}
         </ul>
       </div>
     </aside>
