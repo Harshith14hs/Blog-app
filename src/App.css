@@ -137,18 +137,32 @@ body {
     margin-top: 0;
     width: 100vw;
     min-width: 0;
+    max-width: 100vw;
     box-sizing: border-box;
     align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    text-align: center;
   }
   .nav-auth-links {
     flex-direction: row;
     gap: 2px;
     width: 100vw;
+    max-width: 100vw;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
+    overflow-wrap: break-word;
+    text-align: center;
+  }
+  .nav h2 {
+    width: 100vw;
     max-width: 100vw;
-    word-break: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -157,26 +171,34 @@ body {
     padding: 4px 2vw 4px 2vw;
   }
   .nav h2 {
-    font-size: 1.2rem;
-    margin: 0 0 0 0;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    max-width: 100vw;
+    text-align: center;
+    overflow-wrap: break-word;
   }
   .nav-auth-links {
     flex-direction: column;
     gap: 2px;
     width: 100vw;
+    max-width: 100vw;
     justify-content: center;
     align-items: center;
     font-size: 0.95rem;
-    max-width: 100vw;
-    word-break: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
   }
   .nav a {
     margin: 0;
     padding: 0;
     display: block;
-    width: 100%;
+    width: 100vw;
+    max-width: 100vw;
     text-align: center;
     box-sizing: border-box;
+    overflow-wrap: break-word;
   }
 }
 
