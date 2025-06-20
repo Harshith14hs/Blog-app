@@ -86,7 +86,11 @@ export default function BlogList({ currVal, updateVal, searchTerm, token }) {
 
   return (
     <div className="blog-list">
-      {loading && <div style={{textAlign: 'center', width: '100%'}}>Loading...</div>}
+      {loading && (
+        <div className="loading-spinner-container">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
       {error && <div style={{color: 'red', textAlign: 'center', width: '100%'}}>{error}</div>}
       {!loading && !error && filteredPosts.length === 0 && currVal === "myposts" && (
         <div style={{textAlign: 'center', width: '100%', color: '#666'}}>
