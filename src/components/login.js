@@ -4,7 +4,7 @@ import "./LoginPage.css";
 import { Bloglist } from "../store/store";
 import { API_BASE_URL } from "../api";
 
-const Login=({updateVal})=>{
+const Login=({updateVal, showToast})=>{
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser, setToken } = useContext(Bloglist);
@@ -23,6 +23,7 @@ const Login=({updateVal})=>{
         setToken(data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
         localStorage.setItem("token", data.token);
+        if (typeof showToast === 'function') showToast("Successfully logged in!");
         updateVal("home");
       } else {
         alert(data.message || "Login failed");

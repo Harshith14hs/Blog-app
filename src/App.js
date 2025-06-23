@@ -126,8 +126,8 @@ function App() {
         </div>
       )}
 
-      {currVal === "login" && <Login currVal={currVal} updateVal={updateVal} />}
-      {currVal === "signin" && <SignInPage updateVal={updateVal} />}
+      {currVal === "login" && <Login currVal={currVal} updateVal={updateVal} showToast={showToast} />}
+      {currVal === "signin" && <SignInPage updateVal={updateVal} showToast={showToast} />}
     </>
   );
 }
