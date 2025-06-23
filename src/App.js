@@ -4,12 +4,13 @@ import BlogList from "./components/BlogList";
 import RightSidebar from "./components/RightSidebar";
 import Login from "./components/login"
 import CreateBlog from "./components/create-blog"
+import LandingPage from "./components/LandingPage";
 import "./App.css";
 import { useState, useContext } from "react";
 import { Bloglist } from "./store/store";
 
 function App() {
-  const [currVal, updateVal] = useState("home");
+  const [currVal, updateVal] = useState("landing");
   const [searchTerm, setSearchTerm] = useState("");
   const { token, user, logout } = useContext(Bloglist) || {};
  
@@ -19,6 +20,12 @@ function App() {
 
   return (
     <>
+      {currVal === "landing" && (
+        <LandingPage
+          onSignIn={() => updateVal("login")}
+          onCreateBlog={() => updateVal("signin")}
+        />
+      )}
       {(currVal === "home" || currVal === "myposts") && (
         <div className="container">
           <Sidebar currVal={currVal} updateVal={updateVal} />

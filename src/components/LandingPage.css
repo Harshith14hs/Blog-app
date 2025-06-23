@@ -1,0 +1,71 @@
+.landing-bg {
+  min-height: 100vh;
+  background: #a94436;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 48px 0 48px;
+}
+
+.landing-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.landing-signin {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.landing-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-title {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.landing-subtitle {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.landing-create-btn {
+  background: #ffb300;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 16px 36px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.landing-create-btn:hover {
+  background: #ffa000;
+} 
