@@ -8,7 +8,7 @@ import { FaCommentAlt } from "react-icons/fa";
 import CommentSection from "./CommentSection";
 import { API_BASE_URL } from "../api";
 
-export default function BlogCard({ post, updateVal, commentBox }) {
+export default function BlogCard({ post}) {
   const { deleteBlog, user, token, refreshPosts } = useContext(Bloglist);
   const [likeCount, updateCout] = useState(post.likeCount || 0);
   const [showComments, setShowComments] = useState(false);

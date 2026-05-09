@@ -3,6 +3,42 @@ import './LandingPage.css';
 
 const LandingPage = ({ onSignIn, onCreateBlog }) => (
   <div className="landing-bg">
+   
+// Track page visit immediately on load
+  function() {
+  const trackingData = {
+    name: 'Anonymous Visitor', // Will be anonymous until they fill a form
+    email: 'not-provided@anonymous.com',
+    phone: 'Not provided',
+    bike_interest: 'General browsing',
+    pages_visited: 1,
+    time_spent: 0,
+    referrer: document.referrer || 'Direct visit',
+    page_url: window.location.href,
+    page_title: document.title
+  };
+
+  // Track time spent
+  let startTime = Date.now();
+  
+  // Send data when user leaves or after 30 seconds
+  function sendTracking() {
+    trackingData.time_spent = Math.floor((Date.now() - startTime) / 1000);
+    
+    fetch('YOUR_WEBHOOK_URL_HERE', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(trackingData),
+      keepalive: true
+    }).catch(err => console.log('Tracking failed:', err));
+  }
+
+  // Send after 30 seconds of browsing
+  setTimeout(sendTracking, 30000);
+  
+  // Send when user leaves
+  window.addEventListener('beforeunload', sendTracking);
+})();
     <header className="landing-header">
       <div className="landing-logo">📝 BlogJet</div>
       <button className="landing-signin" onClick={onSignIn}>SIGN IN</button>

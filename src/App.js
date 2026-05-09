@@ -38,7 +38,7 @@ function App() {
     updateVal("landing");
     showToast("Logged out successfully!");
   };
-
+ 
   const handleSearch = (term) => {
     setSearchTerm(term);
   };
